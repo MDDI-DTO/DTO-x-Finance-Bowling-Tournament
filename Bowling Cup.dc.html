@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;-webkit-tap-highlight-color:transparent;}
+    input,button{font-family:inherit;}
+    @keyframes overlayFade{0%{opacity:1}75%{opacity:1}100%{opacity:0}}
+    @keyframes kickLeg{0%{transform:rotate(0deg)}18%{transform:rotate(-42deg)}34%{transform:rotate(18deg)}100%{transform:rotate(0deg)}}
+    @keyframes ballRoll{0%{transform:translateX(0) rotate(0deg)}100%{transform:translateX(58vw) rotate(900deg)}}
+    @keyframes captionPop{0%{opacity:0;transform:translateY(8px) scale(.9)}20%{opacity:1;transform:translateY(0) scale(1)}80%{opacity:1}100%{opacity:0}}
+    @keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(600deg);opacity:0}}
+    @keyframes trophyBounce{0%{transform:translateY(-10px) scale(.6);opacity:0}50%{transform:translateY(2px) scale(1.1);opacity:1}70%{transform:translateY(-3px) scale(1)}100%{transform:translateY(0) scale(1);opacity:1}}
+    @keyframes toastIn{0%{opacity:0;transform:translate(-50%,10px)}100%{opacity:1;transform:translate(-50%,0)}}
+    @keyframes popBounce{0%{transform:scale(0) translateY(18px);opacity:0}60%{transform:scale(1.15) translateY(-6px);opacity:1}100%{transform:scale(1) translateY(0);opacity:1}}
+    @keyframes hopSmall{0%{transform:translateY(0)}30%{transform:translateY(-10px)}60%{transform:translateY(0)}100%{transform:translateY(0)}}
+    @keyframes leanRight{0%{transform:translateX(0) rotate(0deg)}45%{transform:translateX(10px) rotate(8deg)}100%{transform:translateX(0) rotate(0deg)}}
+    @keyframes leanLeft{0%{transform:translateX(0) rotate(0deg)}45%{transform:translateX(-10px) rotate(-8deg)}100%{transform:translateX(0) rotate(0deg)}}
+    @keyframes starPop{0%{transform:scale(0) rotate(45deg);opacity:0}50%{transform:scale(1.3) rotate(45deg);opacity:1}100%{transform:scale(0.6) rotate(45deg);opacity:0}}
+    @keyframes textPop{0%{transform:scale(0.6);opacity:0}100%{transform:scale(1);opacity:1}}
+    @keyframes sceneFadeOut1{0%{opacity:1}80%{opacity:1}100%{opacity:0}}
+    @keyframes sceneFadeOut2{0%{opacity:1}80%{opacity:1}100%{opacity:0}}
+    @keyframes ballPopIn{0%{transform:translateY(-50%) translateX(-60px) scale(0.4);opacity:0}60%{transform:translateY(-50%) translateX(6px) scale(1.08);opacity:1}100%{transform:translateY(-50%) translateX(0) scale(1);opacity:1}}
+    @keyframes ballHopScene2{0%{transform:translateY(-50%) translate(0,0)}40%{transform:translateY(-50%) translate(14px,-14px)}70%{transform:translateY(-50%) translate(20px,0)}100%{transform:translateY(-50%) translate(16px,0)}}
+    @keyframes pinsPopIn{0%{transform:translateX(50px) scale(0.5);opacity:0}60%{transform:translateX(-6px) scale(1.08);opacity:1}100%{transform:translateX(0) scale(1);opacity:1}}
+    @keyframes pinWobble{0%{transform:rotate(0deg)}25%{transform:rotate(-10deg)}50%{transform:rotate(0deg)}75%{transform:rotate(10deg)}100%{transform:rotate(0deg)}}
+    @keyframes glowPulse{0%{box-shadow:0 0 0 2px oklch(0.8 0.15 86 / 0.5),0 3px 8px rgba(0,0,0,0.1)}50%{box-shadow:0 0 0 4px oklch(0.8 0.15 86 / 0.8),0 3px 10px rgba(0,0,0,0.12)}100%{box-shadow:0 0 0 2px oklch(0.8 0.15 86 / 0.5),0 3px 8px rgba(0,0,0,0.1)}}
+    @keyframes rowFlameFlicker{0%{opacity:0.2;transform:scale(0.95)}100%{opacity:0.4;transform:scale(1.06)}}
+    @keyframes ribbonPop{0%{transform:translateY(-6px) rotate(-6deg) scale(0.7);opacity:0}100%{transform:translateY(0) rotate(-6deg) scale(1);opacity:1}}
+    @keyframes mascotBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-6px) rotate(4deg)}}
+    @keyframes cloudDrift{0%{transform:translateX(0)}100%{transform:translateX(14px)}}
+  </style>
+</helmet>
+
+<div style="font-family:'Nunito',sans-serif;min-height:100vh;background:linear-gradient(180deg, oklch(0.92 0.04 235) 0%, oklch(0.95 0.025 90) 46%, oklch(0.85 0.07 150) 47%, oklch(0.78 0.08 150) 100%);color:oklch(0.42 0.05 50);position:relative;overflow-x:hidden;padding-bottom:96px;">
+
+  <div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;">
+    <div style="position:absolute;top:5%;left:6%;width:90px;height:44px;animation:cloudDrift 6s ease-in-out infinite alternate;">
+      <div style="position:absolute;left:0;top:12px;width:48px;height:32px;background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:50%;"></div>
+      <div style="position:absolute;left:26px;top:0;width:56px;height:40px;background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:50%;"></div>
+      <div style="position:absolute;left:52px;top:14px;width:38px;height:26px;background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:50%;"></div>
+    </div>
+    <div style="position:absolute;top:11%;right:8%;width:70px;height:36px;animation:cloudDrift 7.5s ease-in-out infinite alternate-reverse;opacity:0.9;">
+      <div style="position:absolute;left:0;top:10px;width:38px;height:26px;background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:50%;"></div>
+      <div style="position:absolute;left:20px;top:0;width:44px;height:32px;background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:50%;"></div>
+    </div>
+    <div style="position:absolute;bottom:8%;left:10%;width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid oklch(0.6 0.04 55);opacity:0.7;"><div style="position:absolute;top:5px;left:5px;width:6px;height:6px;background:oklch(0.6 0.04 55);border-radius:1px;"></div></div>
+    <div style="position:absolute;bottom:12%;left:22%;width:8px;height:18px;border-radius:50% 50% 30% 30%;background:#fff;border:2px solid oklch(0.6 0.04 55);opacity:0.6;"></div>
+    <div style="position:absolute;bottom:6%;right:18%;width:18px;height:18px;opacity:0.65;">
+      <div style="position:absolute;left:6px;top:6px;width:6px;height:6px;border-radius:50%;background:oklch(0.82 0.1 15);"></div>
+      <div style="position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:50%;background:oklch(0.86 0.09 15);"></div>
+      <div style="position:absolute;left:10px;top:6px;width:8px;height:8px;border-radius:50%;background:oklch(0.86 0.09 15);"></div>
+      <div style="position:absolute;left:6px;top:0;width:8px;height:8px;border-radius:50%;background:oklch(0.86 0.09 15);"></div>
+      <div style="position:absolute;left:6px;top:11px;width:8px;height:8px;border-radius:50%;background:oklch(0.86 0.09 15);"></div>
+    </div>
+    <div style="position:absolute;bottom:10%;right:8%;width:16px;height:16px;opacity:0.65;">
+      <div style="position:absolute;bottom:0;left:2px;width:12px;height:5px;background:oklch(0.8 0.15 86);border-radius:2px;"></div>
+      <div style="position:absolute;bottom:4px;left:0;width:16px;height:9px;background:oklch(0.8 0.15 86);border-radius:2px 2px 8px 8px;"></div>
+    </div>
+  </div>
+
+  <div style="position:fixed;bottom:98px;right:10px;width:46px;height:46px;z-index:35;pointer-events:none;">
+    <div style="position:absolute;inset:0;border-radius:50%;background:oklch(0.97 0.02 80);border:2.5px solid oklch(0.6 0.05 55);"></div>
+    <div style="position:absolute;left:30%;top:42%;width:14%;height:16%;background:oklch(0.8 0.08 235);"></div>
+    <div style="position:absolute;left:56%;top:42%;width:14%;height:16%;background:oklch(0.8 0.08 235);"></div>
+    <div style="position:absolute;left:26%;top:30%;width:12%;height:12%;border-radius:50%;background:#3a2e28;"></div>
+    <div style="position:absolute;left:62%;top:30%;width:12%;height:12%;border-radius:50%;background:#3a2e28;"></div>
+    <div style="position:absolute;left:20%;top:58%;width:14%;height:10%;border-radius:50%;background:oklch(0.82 0.09 15);opacity:0.7;"></div>
+    <div style="position:absolute;left:66%;top:58%;width:14%;height:10%;border-radius:50%;background:oklch(0.82 0.09 15);opacity:0.7;"></div>
+  </div>
+  <div style="position:fixed;bottom:98px;left:10px;width:46px;height:46px;z-index:35;pointer-events:none;">
+    <div style="position:absolute;inset:0;border-radius:50%;background:oklch(0.9 0.06 15);border:2.5px solid oklch(0.65 0.09 15);"></div>
+    <div style="position:absolute;left:30%;top:30%;width:12%;height:12%;border-radius:50%;background:#3a2e28;"></div>
+    <div style="position:absolute;left:62%;top:30%;width:12%;height:12%;border-radius:50%;background:#3a2e28;"></div>
+    <div style="position:absolute;left:20%;top:58%;width:14%;height:10%;border-radius:50%;background:oklch(0.8 0.1 15);opacity:0.6;"></div>
+    <div style="position:absolute;left:66%;top:58%;width:14%;height:10%;border-radius:50%;background:oklch(0.8 0.1 15);opacity:0.6;"></div>
+    <div style="position:absolute;right:-9px;bottom:2px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 32% 28%, #2b2e42, #12131f 60%, #030309 100%);"></div>
+  </div>
+
+  <div style="position:relative;z-index:1;">
+
+  <div style="position:sticky;top:0;z-index:60;background:oklch(0.97 0.02 80);border-bottom:3px solid oklch(0.78 0.05 60);padding:14px 16px 12px;display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;color:oklch(0.58 0.045 55);">DTO x FINANCE TOURNAMENT</div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span style="color:oklch(0.8 0.15 86);font-size:14px;">&#10022;</span>
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;letter-spacing:0.5px;color:oklch(0.42 0.05 50);">Bowling Cup</div>
+        <span style="color:oklch(0.8 0.15 86);font-size:14px;">&#10022;</span>
+      </div>
+    </div>
+    <button onClick="{{ openAdmin }}" style="background:oklch(0.85 0.08 15);border:2.5px solid oklch(0.7 0.11 12);color:oklch(0.32 0.06 15);font-family:'Baloo 2',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.5px;padding:8px 12px;border-radius:12px;">ADMIN</button>
+  </div>
+
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:96px;z-index:120;background:oklch(0.42 0.05 50);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-family:'Baloo 2',sans-serif;font-size:14px;box-shadow:0 4px 0 oklch(0.3 0.04 50);animation:toastIn .25s ease;white-space:nowrap;">{{ toast }}</div>
+  </sc-if>
+
+  <div style="padding:16px;">
+
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:24px;padding:18px;box-shadow:0 4px 0 oklch(0.78 0.05 60);margin-bottom:16px;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;color:oklch(0.42 0.05 50);margin-bottom:4px;">Welcome to the Cup!</div>
+        <div style="font-size:14px;color:oklch(0.5 0.04 55);line-height:1.5;">Form your Round 1 squad, then check the board once the pins start falling.</div>
+        <div style="display:flex;gap:10px;margin-top:14px;">
+          <div style="flex:1;background:oklch(0.94 0.03 90);border:2px solid oklch(0.82 0.04 70);border-radius:16px;padding:10px;text-align:center;">
+            <div style="font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:800;color:oklch(0.42 0.05 50);">{{ teamCount1 }}</div>
+            <div style="font-size:11px;color:oklch(0.55 0.04 55);font-weight:700;letter-spacing:0.3px;">ROUND 1 TEAMS</div>
+          </div>
+          <div style="flex:1;background:oklch(0.94 0.03 90);border:2px solid oklch(0.82 0.04 70);border-radius:16px;padding:10px;text-align:center;">
+            <div style="font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:800;color:oklch(0.42 0.05 50);">{{ playerCount }}</div>
+            <div style="font-size:11px;color:oklch(0.55 0.04 55);font-weight:700;letter-spacing:0.3px;">PLAYERS</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <button onClick="{{ goCreate }}" style="background:oklch(0.82 0.1 45);color:oklch(0.3 0.06 45);border:3px solid oklch(0.66 0.12 42);border-radius:20px;padding:18px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:17px;box-shadow:0 4px 0 oklch(0.62 0.12 42);" style-active="transform:translateY(4px);box-shadow:none;">+ Create a Team</button>
+        <button onClick="{{ goJoin }}" style="background:oklch(0.98 0.018 80);color:oklch(0.42 0.05 50);border:3px solid oklch(0.78 0.05 60);border-radius:20px;padding:18px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:17px;box-shadow:0 4px 0 oklch(0.78 0.05 60);" style-active="transform:translateY(4px);box-shadow:none;">Join a Team</button>
+      </div>
+
+      <div style="margin-top:20px;background:oklch(0.94 0.03 90);border:3px solid oklch(0.82 0.04 70);border-radius:20px;padding:18px;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:15px;color:oklch(0.42 0.05 50);margin-bottom:6px;">Round 2 — Mixed Shuffle</div>
+        <sc-if value="{{ round2AlreadyStarted }}" hint-placeholder-val="{{ false }}">
+          <div style="color:oklch(0.5 0.04 55);font-size:14px;">Round 2 teams are set. Head to the board to see how the mix is doing.</div>
+        </sc-if>
+        <sc-if value="{{ canStartRound2 }}" hint-placeholder-val="{{ false }}">
+          <div style="color:oklch(0.5 0.04 55);font-size:13px;margin-bottom:10px;">Randomly reshuffle all Round 1 players into new balanced teams.</div>
+          <button onClick="{{ requestRound2 }}" style="width:100%;background:oklch(0.8 0.15 86);color:oklch(0.32 0.06 60);border:3px solid oklch(0.66 0.13 80);border-radius:16px;padding:14px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:15px;box-shadow:0 4px 0 oklch(0.62 0.13 80);" style-active="transform:translateY(4px);box-shadow:none;">Start Round 2</button>
+        </sc-if>
+        <sc-if value="{{ canFinishRound2 }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ finishRound2 }}" style="width:100%;margin-top:10px;background:oklch(0.98 0.018 80);color:oklch(0.42 0.05 50);border:3px solid oklch(0.8 0.15 86);border-radius:16px;padding:12px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;">Finish Round 2</button>
+        </sc-if>
+        <sc-if value="{{ needsMoreForRound2 }}" hint-placeholder-val="{{ false }}">
+          <div style="color:oklch(0.5 0.04 55);font-size:13px;">Need at least 2 Round 1 teams before shuffling.</div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isCreate }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ goHome }}" style="background:none;border:none;color:oklch(0.42 0.05 50);font-weight:700;font-family:'Baloo 2',sans-serif;font-size:14px;margin-bottom:12px;">&larr; Back</button>
+      <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:24px;padding:18px;box-shadow:0 4px 0 oklch(0.78 0.05 60);">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;margin-bottom:14px;color:oklch(0.42 0.05 50);">Create a Team</div>
+        <div style="font-size:12px;font-weight:700;color:oklch(0.55 0.04 55);letter-spacing:0.3px;margin-bottom:6px;">TEAM NAME</div>
+        <input value="{{ createName }}" onChange="{{ onCreateNameChange }}" placeholder="e.g. Gutter Ballers" style="width:100%;box-sizing:border-box;padding:14px;border-radius:14px;border:2.5px solid oklch(0.85 0.03 70);font-size:16px;margin-bottom:16px;font-family:'Nunito',sans-serif;">
+        <div style="font-size:12px;font-weight:700;color:oklch(0.55 0.04 55);letter-spacing:0.3px;margin-bottom:6px;">DIVISION</div>
+        <div style="display:flex;gap:8px;margin-bottom:16px;">
+          <button onClick="{{ setCreateDivisionDTO }}" style="flex:1;padding:12px;border-radius:14px;font-weight:700;font-family:'Baloo 2',sans-serif;{{ dtoButtonStyle }}">DTO</button>
+          <button onClick="{{ setCreateDivisionFinance }}" style="flex:1;padding:12px;border-radius:14px;font-weight:700;font-family:'Baloo 2',sans-serif;{{ financeButtonStyle }}">FINANCE</button>
+        </div>
+        <div style="font-size:12px;font-weight:700;color:oklch(0.55 0.04 55);letter-spacing:0.3px;margin-bottom:6px;">MEMBERS</div>
+        <sc-for list="{{ createMembers }}" as="m" hint-placeholder-count="2">
+          <div style="display:flex;gap:8px;margin-bottom:8px;">
+            <input value="{{ m.value }}" onChange="{{ m.onChange }}" placeholder="Member name" style="flex:1;box-sizing:border-box;padding:12px;border-radius:14px;border:2.5px solid oklch(0.85 0.03 70);font-size:15px;font-family:'Nunito',sans-serif;">
+            <sc-if value="{{ m.canRemove }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ m.onRemove }}" style="width:44px;background:oklch(0.94 0.03 90);border:2.5px solid oklch(0.82 0.04 70);border-radius:14px;color:oklch(0.5 0.13 25);font-size:18px;font-weight:700;">&times;</button>
+            </sc-if>
+          </div>
+        </sc-for>
+        <button onClick="{{ addMemberField }}" style="background:none;border:2.5px dashed oklch(0.7 0.05 60);color:oklch(0.42 0.05 50);border-radius:14px;padding:10px;font-weight:700;font-family:'Baloo 2',sans-serif;font-size:14px;width:100%;margin-bottom:18px;">+ Add member</button>
+        <button onClick="{{ submitCreateTeam }}" style="width:100%;background:oklch(0.82 0.1 45);color:oklch(0.3 0.06 45);border:3px solid oklch(0.66 0.12 42);border-radius:16px;padding:16px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;box-shadow:0 4px 0 oklch(0.62 0.12 42);" style-active="transform:translateY(4px);box-shadow:none;">Create Team</button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isJoin }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ goHome }}" style="background:none;border:none;color:oklch(0.42 0.05 50);font-weight:700;font-family:'Baloo 2',sans-serif;font-size:14px;margin-bottom:12px;">&larr; Back</button>
+      <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;color:oklch(0.42 0.05 50);margin-bottom:10px;">Pick a Team</div>
+      <sc-for list="{{ joinTeamsList }}" as="t" hint-placeholder-count="3">
+        <div onClick="{{ t.onSelect }}" style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:14px;margin-bottom:10px;{{ t.selectStyle }}">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;color:oklch(0.42 0.05 50);">{{ t.name }}</div>
+            <div style="font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff;background:{{ t.divisionColor }}">{{ t.division }}</div>
+          </div>
+          <div style="font-size:13px;color:oklch(0.5 0.04 55);margin-top:4px;">{{ t.memberSummary }}</div>
+        </div>
+      </sc-for>
+      <sc-if value="{{ hasJoinSelection }}" hint-placeholder-val="{{ false }}">
+        <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:16px;margin-top:8px;">
+          <div style="font-size:12px;font-weight:700;color:oklch(0.55 0.04 55);letter-spacing:0.3px;margin-bottom:6px;">YOUR NAME</div>
+          <input value="{{ joinName }}" onChange="{{ onJoinNameChange }}" placeholder="Full name" style="width:100%;box-sizing:border-box;padding:14px;border-radius:14px;border:2.5px solid oklch(0.85 0.03 70);font-size:16px;margin-bottom:14px;font-family:'Nunito',sans-serif;">
+          <button onClick="{{ submitJoin }}" style="width:100%;background:oklch(0.82 0.1 45);color:oklch(0.3 0.06 45);border:3px solid oklch(0.66 0.12 42);border-radius:16px;padding:16px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;box-shadow:0 4px 0 oklch(0.62 0.12 42);" style-active="transform:translateY(4px);box-shadow:none;">Join Team</button>
+        </div>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{ isScores }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;gap:8px;margin-bottom:14px;">
+        <button onClick="{{ setScoreRound1 }}" style="flex:1;padding:12px;border-radius:14px;font-family:'Baloo 2',sans-serif;font-weight:700;{{ scoreTab1Style }}">ROUND 1</button>
+        <button onClick="{{ setScoreRound2 }}" disabled="{{ scoreRound2Disabled }}" style="flex:1;padding:12px;border-radius:14px;font-family:'Baloo 2',sans-serif;font-weight:700;{{ scoreTab2Style }}">ROUND 2</button>
+      </div>
+      <div style="font-size:13px;color:oklch(0.42 0.05 50);margin-bottom:10px;font-weight:600;">Entering scores for Round {{ scoreRound }}. Values save per team.</div>
+      <sc-for list="{{ scoreTeams }}" as="t" hint-placeholder-count="3">
+        <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:14px;margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;color:oklch(0.42 0.05 50);">{{ t.name }}</div>
+            <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:16px;color:oklch(0.6 0.13 60);">{{ t.total }} pts</div>
+          </div>
+          <sc-for list="{{ t.players }}" as="p" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-top:2px dashed oklch(0.88 0.03 70);">
+              <div style="font-size:14px;color:oklch(0.42 0.05 50);">{{ p.name }}</div>
+              <input type="number" min="0" max="{{ p.maxScore }}" value="{{ p.value }}" onChange="{{ p.onChange }}" style="width:72px;text-align:center;padding:8px;border-radius:12px;border:2.5px solid oklch(0.85 0.03 70);font-size:15px;font-family:'Nunito',sans-serif;">
+            </div>
+          </sc-for>
+          <button onClick="{{ t.onSave }}" style="width:100%;margin-top:10px;background:oklch(0.82 0.1 45);color:oklch(0.3 0.06 45);border:2.5px solid oklch(0.66 0.12 42);border-radius:14px;padding:12px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;">Save Scores</button>
+        </div>
+      </sc-for>
+    </sc-if>
+
+    <sc-if value="{{ isLeaderboard }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;gap:8px;margin-bottom:14px;">
+        <button onClick="{{ setBoardRound1 }}" style="flex:1;padding:12px;border-radius:14px;font-family:'Baloo 2',sans-serif;font-weight:700;{{ boardTab1Style }}">ROUND 1</button>
+        <button onClick="{{ setBoardRound2 }}" disabled="{{ boardRound2Disabled }}" style="flex:1;padding:12px;border-radius:14px;font-family:'Baloo 2',sans-serif;font-weight:700;{{ boardTab2Style }}">ROUND 2</button>
+      </div>
+
+      <sc-if value="{{ hasPodium }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-bottom:20px;padding-top:34px;">
+          <sc-for list="{{ podiumSlots }}" as="p" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;align-items:center;width:31%;max-width:112px;">
+              <sc-if value="{{ p.showCrown }}" hint-placeholder-val="{{ false }}">
+                <div style="position:relative;width:34px;height:18px;margin-bottom:2px;">
+                  <div style="position:absolute;bottom:0;left:0;width:34px;height:11px;box-sizing:border-box;background:oklch(0.8 0.15 86);border:2px solid #3a2a1f;border-radius:4px;"></div>
+                  <div style="position:absolute;bottom:7px;left:2px;width:8px;height:8px;border-radius:50%;background:oklch(0.8 0.15 86);border:2px solid #3a2a1f;"></div>
+                  <div style="position:absolute;bottom:9px;left:13px;width:9px;height:9px;border-radius:50%;background:oklch(0.8 0.15 86);border:2px solid #3a2a1f;"></div>
+                  <div style="position:absolute;bottom:7px;right:2px;width:8px;height:8px;border-radius:50%;background:oklch(0.8 0.15 86);border:2px solid #3a2a1f;"></div>
+                  <sc-if value="{{ p.showCrownSparkle }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;left:-9px;top:-7px;width:9px;height:9px;background:oklch(0.85 0.13 80);transform:rotate(45deg);animation:starPop .6s ease infinite;"></div>
+                    <div style="position:absolute;right:-9px;top:-5px;width:7px;height:7px;background:oklch(0.85 0.13 80);transform:rotate(45deg);animation:starPop .6s ease .2s infinite;"></div>
+                  </sc-if>
+                </div>
+              </sc-if>
+              <div style="position:relative;{{ p.bounce }}">
+                <div style="position:relative;width:{{ p.avatarSize }}px;height:{{ p.avatarSize }}px;">
+                  <div style="position:absolute;left:8%;top:-8%;width:20%;height:20%;border-radius:50%;background:{{ p.avatarColor }};border:3px solid #3a2a1f;"></div>
+                  <div style="position:absolute;right:8%;top:-8%;width:20%;height:20%;border-radius:50%;background:{{ p.avatarColor }};border:3px solid #3a2a1f;"></div>
+                  <div style="position:absolute;left:6%;top:12%;width:88%;height:80%;border-radius:50%;background:{{ p.avatarColor }};border:3px solid #3a2a1f;"></div>
+                  <div style="position:absolute;left:30%;top:44%;width:11%;height:11%;border-radius:50%;background:#2a2018;"></div>
+                  <div style="position:absolute;right:30%;top:44%;width:11%;height:11%;border-radius:50%;background:#2a2018;"></div>
+                  <div style="position:absolute;left:18%;top:58%;width:15%;height:10%;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+                  <div style="position:absolute;right:18%;top:58%;width:15%;height:10%;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+                  <sc-if value="{{ p.hasScarf }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;left:22%;top:62%;width:56%;height:12%;background:{{ p.accentColor }};border-radius:4px;border:2px solid #3a2a1f;"></div>
+                  </sc-if>
+                  <sc-if value="{{ p.hasFlag }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;right:2%;top:6%;width:3px;height:40%;background:#3a2a1f;"></div>
+                    <div style="position:absolute;right:-2%;top:6%;width:22%;height:16%;background:{{ p.accentColor }};clip-path:polygon(0 0,100% 20%,0 100%);"></div>
+                  </sc-if>
+                  <sc-if value="{{ p.hasBall }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;left:-14%;top:38%;width:26%;height:26%;border-radius:50%;background:radial-gradient(circle at 32% 28%, #2b2e42, #12131f 60%, #030309 100%);border:2px solid #3a2a1f;"></div>
+                  </sc-if>
+                </div>
+                <div style="position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);width:28px;height:28px;">
+                  <div style="position:absolute;left:-11px;top:8px;width:9px;height:5px;border-radius:50%;background:oklch(0.72 0.09 145);transform:rotate(-30deg);"></div>
+                  <div style="position:absolute;left:-9px;top:2px;width:8px;height:5px;border-radius:50%;background:oklch(0.72 0.09 145);transform:rotate(-55deg);"></div>
+                  <div style="position:absolute;right:-11px;top:8px;width:9px;height:5px;border-radius:50%;background:oklch(0.72 0.09 145);transform:rotate(30deg);"></div>
+                  <div style="position:absolute;right:-9px;top:2px;width:8px;height:5px;border-radius:50%;background:oklch(0.72 0.09 145);transform:rotate(55deg);"></div>
+                  <div style="position:absolute;inset:0;border-radius:50%;background:{{ p.badgeBg }};border:2.5px solid #3a2a1f;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:13px;color:{{ p.badgeText }};">{{ p.rank }}</div>
+                </div>
+              </div>
+              <div style="margin-top:16px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;color:oklch(0.42 0.05 50);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">{{ p.name }}</div>
+              <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:15px;color:oklch(0.6 0.13 60);">{{ p.displayTotal }}</div>
+              <sc-if value="{{ p.showRibbon }}" hint-placeholder-val="{{ false }}">
+                <div style="background:oklch(0.8 0.15 86);color:oklch(0.32 0.06 60);font-family:'Baloo 2',sans-serif;font-weight:700;font-size:9px;padding:2px 8px;border-radius:999px;border:1.5px solid #3a2a1f;margin-top:2px;animation:ribbonPop .4s ease;">CHAMPIONS</div>
+              </sc-if>
+              <div style="width:100%;height:{{ p.podiumHeight }}px;background:oklch(0.94 0.03 90);border:3px solid oklch(0.78 0.05 60);border-radius:12px 12px 0 0;margin-top:8px;"></div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <div style="position:relative;height:{{ leaderboardHeight }}px;">
+        <sc-for list="{{ leaderboardRows }}" as="row" hint-placeholder-count="4">
+          <div style="position:absolute;left:0;right:0;top:{{ row.topPx }}px;height:68px;transition:top .55s cubic-bezier(.3,.9,.4,1), background 1.1s ease;background:{{ row.bgColor }};border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:0 12px;display:flex;align-items:center;gap:10px;">
+            <div style="width:22px;text-align:center;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:14px;color:oklch(0.5 0.04 55);">{{ row.rank }}</div>
+            <div style="position:relative;width:40px;height:40px;flex-shrink:0;">
+              <div style="position:absolute;left:8%;top:-8%;width:20%;height:20%;border-radius:50%;background:{{ row.avatarColor }};border:2.5px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:8%;top:-8%;width:20%;height:20%;border-radius:50%;background:{{ row.avatarColor }};border:2.5px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:6%;top:12%;width:88%;height:80%;border-radius:50%;background:{{ row.avatarColor }};border:2.5px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:30%;top:44%;width:11%;height:11%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:30%;top:44%;width:11%;height:11%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:18%;top:58%;width:15%;height:10%;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+              <div style="position:absolute;right:18%;top:58%;width:15%;height:10%;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+              <sc-if value="{{ row.hasScarf }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:22%;top:62%;width:56%;height:12%;background:{{ row.accentColor }};border-radius:4px;border:2px solid #3a2a1f;"></div>
+              </sc-if>
+              <sc-if value="{{ row.hasFlag }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;right:2%;top:6%;width:3px;height:40%;background:#3a2a1f;"></div>
+                <div style="position:absolute;right:-2%;top:6%;width:22%;height:16%;background:{{ row.accentColor }};clip-path:polygon(0 0,100% 20%,0 100%);"></div>
+              </sc-if>
+              <sc-if value="{{ row.hasBall }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:-14%;top:38%;width:26%;height:26%;border-radius:50%;background:radial-gradient(circle at 32% 28%, #2b2e42, #12131f 60%, #030309 100%);border:2px solid #3a2a1f;"></div>
+              </sc-if>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:15px;color:oklch(0.42 0.05 50);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ row.name }}</div>
+              <div style="font-size:12px;color:oklch(0.55 0.04 55);">{{ row.subtitle }}</div>
+            </div>
+            <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:17px;color:oklch(0.6 0.13 60);">{{ row.displayTotal }}</div>
+            <sc-if value="{{ row.showArrowUp }}" hint-placeholder-val="{{ false }}">
+              <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:9px solid oklch(0.55 0.12 145);"></div>
+            </sc-if>
+            <sc-if value="{{ row.showArrowDown }}" hint-placeholder-val="{{ false }}">
+              <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid oklch(0.6 0.15 25);"></div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isAwards }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;gap:8px;margin-bottom:14px;">
+        <button onClick="{{ setAwardsRound1 }}" style="flex:1;padding:12px;border-radius:14px;font-family:'Baloo 2',sans-serif;font-weight:700;{{ awardsTab1Style }}">ROUND 1</button>
+        <button onClick="{{ setAwardsRound2 }}" disabled="{{ awardsRound2Disabled }}" style="flex:1;padding:12px;border-radius:14px;font-family:'Baloo 2',sans-serif;font-weight:700;{{ awardsTab2Style }}">ROUND 2</button>
+      </div>
+      <sc-for list="{{ awardCards }}" as="a" hint-placeholder-count="3">
+        <div style="background:oklch(0.98 0.018 80);border-radius:20px;padding:18px;margin-bottom:12px;border:3px solid {{ a.borderColor }};">
+          <div style="font-size:26px;line-height:1;margin-bottom:8px;">{{ a.medal }}</div>
+          <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.5px;color:oklch(0.55 0.04 55);">{{ a.label }}</div>
+          <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:20px;color:oklch(0.42 0.05 50);margin-top:2px;">{{ a.winner }}</div>
+          <div style="font-size:13px;color:oklch(0.5 0.04 55);margin-top:4px;">{{ a.detail }}</div>
+        </div>
+      </sc-for>
+    </sc-if>
+
+    <sc-if value="{{ isDashboard }}" hint-placeholder-val="{{ false }}">
+      <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;color:oklch(0.42 0.05 50);margin-bottom:10px;">Round 1 — Team Totals</div>
+      <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:16px;margin-bottom:16px;">
+        <sc-for list="{{ dashBars1 }}" as="b" hint-placeholder-count="3">
+          <div style="margin-bottom:10px;">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:oklch(0.5 0.04 55);margin-bottom:3px;font-weight:600;"><span>{{ b.name }}</span><span>{{ b.total }}</span></div>
+            <div style="background:oklch(0.92 0.02 80);border-radius:8px;height:12px;overflow:hidden;"><div style="height:100%;width:{{ b.pct }}%;background:oklch(0.82 0.1 45);border-radius:8px;"></div></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;color:oklch(0.42 0.05 50);margin-bottom:10px;">DTO vs Finance — Avg Score</div>
+      <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:16px;margin-bottom:16px;">
+        <div style="margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:oklch(0.5 0.04 55);margin-bottom:3px;font-weight:600;"><span>DTO</span><span>{{ dtoAvg }}</span></div>
+          <div style="background:oklch(0.92 0.02 80);border-radius:8px;height:12px;overflow:hidden;"><div style="height:100%;width:{{ dtoAvgPct }}%;background:oklch(0.8 0.08 235);border-radius:8px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:oklch(0.5 0.04 55);margin-bottom:3px;font-weight:600;"><span>Finance</span><span>{{ financeAvg }}</span></div>
+          <div style="background:oklch(0.92 0.02 80);border-radius:8px;height:12px;overflow:hidden;"><div style="height:100%;width:{{ financeAvgPct }}%;background:oklch(0.8 0.1 35);border-radius:8px;"></div></div>
+        </div>
+      </div>
+
+      <sc-if value="{{ hasRound2Bars }}" hint-placeholder-val="{{ false }}">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;color:oklch(0.42 0.05 50);margin-bottom:10px;">Round 2 — Team Totals</div>
+        <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:16px;margin-bottom:16px;">
+          <sc-for list="{{ dashBars2 }}" as="b" hint-placeholder-count="3">
+            <div style="margin-bottom:10px;">
+              <div style="display:flex;justify-content:space-between;font-size:12px;color:oklch(0.5 0.04 55);margin-bottom:3px;font-weight:600;"><span>{{ b.name }}</span><span>{{ b.total }}</span></div>
+              <div style="background:oklch(0.92 0.02 80);border-radius:8px;height:12px;overflow:hidden;"><div style="height:100%;width:{{ b.pct }}%;background:oklch(0.8 0.15 86);border-radius:8px;"></div></div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <div style="font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;color:oklch(0.42 0.05 50);margin-bottom:10px;">Top Individual Scorers</div>
+      <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:18px;padding:16px;">
+        <sc-for list="{{ topScorers }}" as="s" hint-placeholder-count="5">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:2px dashed oklch(0.88 0.03 70);">
+            <div style="font-size:14px;color:oklch(0.42 0.05 50);">{{ s.rank }}. {{ s.name }} <span style="color:oklch(0.58 0.04 55);font-size:12px;">(R{{ s.round }})</span></div>
+            <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:15px;color:oklch(0.6 0.13 60);">{{ s.score }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+  </div>
+
+  <div style="position:fixed;bottom:0;left:0;right:0;background:oklch(0.97 0.02 80);border-top:3px solid oklch(0.78 0.05 60);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:60;">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+      <button onClick="{{ n.onClick }}" style="flex:1;background:none;border:none;padding:8px 2px;display:flex;flex-direction:column;align-items:center;gap:4px;color:{{ n.color }}">
+        <div style="width:9px;height:9px;border-radius:50%;background:{{ n.dotColor }}"></div>
+        <div style="font-size:11px;font-weight:700;font-family:'Baloo 2',sans-serif;">{{ n.label }}</div>
+      </button>
+    </sc-for>
+  </div>
+  </div>
+
+  <sc-if value="{{ showAnim }}" hint-placeholder-val="{{ false }}">
+    <div key="{{ animNonce }}" style="position:fixed;inset:0;z-index:500;pointer-events:none;overflow:hidden;background:oklch(0.92 0.04 235 / 0.9);animation:overlayFade 2.6s ease forwards;">
+      <div style="position:absolute;left:0;right:0;bottom:22%;height:120px;">
+        <div style="position:absolute;left:10%;bottom:10px;width:16px;height:16px;border-radius:50%;background:oklch(0.9 0.05 45);"></div>
+        <div style="position:absolute;left:9%;bottom:24px;width:20px;height:34px;border-radius:8px;background:oklch(0.8 0.08 235);"></div>
+        <div style="position:absolute;left:8.5%;bottom:0px;width:10px;height:26px;border-radius:6px;background:oklch(0.42 0.05 50);transform-origin:top center;animation:kickLeg .9s ease-out .15s;"></div>
+        <div style="position:absolute;left:13%;bottom:2px;width:10px;height:22px;border-radius:6px;background:oklch(0.42 0.05 50);"></div>
+        <div style="position:absolute;left:19%;bottom:12px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 32% 28%, #2b2e42, #12131f 60%, #030309 100%);animation:ballRoll 1.3s cubic-bezier(.3,.6,.7,1) .35s forwards;"></div>
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:14%;text-align:center;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:26px;letter-spacing:0.5px;color:oklch(0.8 0.15 86);animation:captionPop 2.2s ease .4s forwards;opacity:0;">{{ animCaption }}</div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showConfetti }}" hint-placeholder-val="{{ false }}">
+    <div key="{{ confettiNonce }}" style="position:fixed;inset:0;z-index:490;pointer-events:none;overflow:hidden;">
+      <sc-for list="{{ confettiPieces }}" as="c" hint-placeholder-count="28">
+        <sc-if value="{{ c.isConfetti }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute;left:{{ c.left }}%;top:-20px;width:8px;height:14px;border-radius:3px;background:{{ c.color }};animation:confettiFall {{ c.duration }}s linear {{ c.delay }}s forwards;"></div>
+        </sc-if>
+        <sc-if value="{{ c.isPin }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;left:{{ c.left }}%;top:-20px;width:8px;height:16px;border-radius:50% 50% 30% 30%;background:#fff;border:2px solid #3a2a1f;animation:confettiFall {{ c.duration }}s linear {{ c.delay }}s forwards;"></div>
+        </sc-if>
+        <sc-if value="{{ c.isBall }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;left:{{ c.left }}%;top:-20px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #3a2a1f;animation:confettiFall {{ c.duration }}s linear {{ c.delay }}s forwards;"></div>
+        </sc-if>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ confirmRound2 }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:600;background:rgba(60,45,30,0.4);display:flex;align-items:center;justify-content:center;padding:24px;">
+      <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:22px;padding:22px;max-width:340px;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:18px;color:oklch(0.42 0.05 50);margin-bottom:8px;">Randomise Round 2?</div>
+        <div style="font-size:14px;color:oklch(0.5 0.04 55);line-height:1.5;margin-bottom:18px;">Randomise all teams for the next round? This action cannot be undone.</div>
+        <div style="display:flex;gap:10px;">
+          <button onClick="{{ cancelRound2 }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.94 0.03 90);border:2.5px solid oklch(0.82 0.04 70);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.42 0.05 50);">Cancel</button>
+          <button onClick="{{ confirmStartRound2 }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.82 0.1 45);border:2.5px solid oklch(0.66 0.12 42);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.3 0.06 45);">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showAdmin }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:600;background:rgba(60,45,30,0.4);display:flex;align-items:center;justify-content:center;padding:24px;">
+      <div style="background:oklch(0.98 0.018 80);border:3px solid oklch(0.78 0.05 60);border-radius:22px;padding:22px;max-width:340px;width:100%;">
+        <div style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:18px;color:oklch(0.42 0.05 50);margin-bottom:10px;">Admin</div>
+        <sc-if value="{{ adminLocked }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:13px;color:oklch(0.5 0.04 55);margin-bottom:10px;">Enter the admin passcode to continue.</div>
+          <input type="password" value="{{ adminPasscodeInput }}" onChange="{{ onAdminPasscodeChange }}" placeholder="Passcode" style="width:100%;box-sizing:border-box;padding:12px;border-radius:14px;border:2.5px solid oklch(0.85 0.03 70);font-size:15px;margin-bottom:10px;font-family:'Nunito',sans-serif;">
+          <sc-if value="{{ adminError }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:13px;color:oklch(0.5 0.15 25);font-weight:700;margin-bottom:10px;">{{ adminError }}</div>
+          </sc-if>
+          <div style="display:flex;gap:10px;">
+            <button onClick="{{ closeAdmin }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.94 0.03 90);border:2.5px solid oklch(0.82 0.04 70);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.42 0.05 50);">Close</button>
+            <button onClick="{{ submitAdminPasscode }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.82 0.1 45);border:2.5px solid oklch(0.66 0.12 42);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.3 0.06 45);">Unlock</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ adminUnlocked }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:13px;color:oklch(0.5 0.04 55);margin-bottom:16px;">Export results or clear all teams, players and scores for everyone.</div>
+          <button onClick="{{ exportData }}" style="width:100%;margin-bottom:10px;padding:12px;border-radius:14px;background:oklch(0.94 0.03 90);border:2.5px solid oklch(0.82 0.04 70);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.42 0.05 50);">Export Data (CSV)</button>
+          <sc-if value="{{ confirmReset }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:13px;color:oklch(0.5 0.15 25);font-weight:700;margin-bottom:12px;">Really clear everything?</div>
+            <div style="display:flex;gap:10px;">
+              <button onClick="{{ cancelReset }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.94 0.03 90);border:2.5px solid oklch(0.82 0.04 70);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.42 0.05 50);">Cancel</button>
+              <button onClick="{{ resetAll }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.85 0.08 15);border:2.5px solid oklch(0.7 0.11 12);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.32 0.06 15);">Yes, reset</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notConfirmReset }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;gap:10px;">
+              <button onClick="{{ closeAdmin }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.94 0.03 90);border:2.5px solid oklch(0.82 0.04 70);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.42 0.05 50);">Close</button>
+              <button onClick="{{ askConfirmReset }}" style="flex:1;padding:12px;border-radius:14px;background:oklch(0.85 0.08 15);border:2.5px solid oklch(0.7 0.11 12);font-weight:700;font-family:'Baloo 2',sans-serif;color:oklch(0.32 0.06 15);">Reset Data</button>
+            </div>
+          </sc-if>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showIntro }}" hint-placeholder-val="{{ true }}">
+    <div onClick="{{ dismissIntro }}" style="position:fixed;inset:0;z-index:900;background:linear-gradient(180deg, oklch(0.92 0.04 235) 0%, oklch(0.95 0.025 90) 62%, oklch(0.85 0.07 150) 63%, oklch(0.78 0.08 150) 100%);overflow:hidden;">
+      <div style="position:absolute;top:8%;left:10%;width:60px;height:28px;">
+        <div style="position:absolute;left:0;top:8px;width:30px;height:20px;background:#fff;border:3px solid oklch(0.6 0.04 55);border-radius:50%;"></div>
+        <div style="position:absolute;left:16px;top:0;width:34px;height:26px;background:#fff;border:3px solid oklch(0.6 0.04 55);border-radius:50%;"></div>
+      </div>
+      <div style="position:absolute;top:14%;right:12%;width:44px;height:22px;">
+        <div style="position:absolute;left:0;top:6px;width:24px;height:16px;background:#fff;border:3px solid oklch(0.6 0.04 55);border-radius:50%;"></div>
+        <div style="position:absolute;left:14px;top:0;width:26px;height:20px;background:#fff;border:3px solid oklch(0.6 0.04 55);border-radius:50%;"></div>
+      </div>
+
+      <sc-if value="{{ introSceneIs1 }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;animation:sceneFadeOut1 2.5s ease forwards;">
+          <div style="background:oklch(0.98 0.018 80);border:3px solid #3a2a1f;border-radius:28px;padding:10px 20px;margin-bottom:22px;max-width:78vw;opacity:0;animation:textPop .4s ease .1s forwards;">
+            <span style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:15px;line-height:1.25;color:oklch(0.42 0.05 50);text-align:center;display:block;">DTO &times; Finance<br/>Bowling Team Bonding Tournament</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:flex-end;gap:10px;">
+
+            <div style="position:relative;width:52px;height:64px;opacity:0;animation:popBounce .5s ease 0s forwards, hopSmall .5s ease 1.3s;">
+              <div style="position:absolute;left:6px;top:-10px;width:10px;height:24px;border-radius:50%;background:oklch(0.97 0.015 80);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:6px;top:-10px;width:10px;height:24px;border-radius:50%;background:oklch(0.97 0.015 80);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:0;top:14px;width:52px;height:48px;border-radius:50%;background:oklch(0.97 0.015 80);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.97 0.015 80);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.97 0.015 80);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+              <div style="position:absolute;right:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+            </div>
+
+            <div style="position:relative;width:52px;height:64px;opacity:0;animation:popBounce .5s ease .22s forwards, leanRight .5s ease 1.3s;">
+              <div style="position:absolute;left:2px;top:-6px;width:14px;height:14px;border-radius:50%;background:oklch(0.82 0.1 55);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:2px;top:-6px;width:14px;height:14px;border-radius:50%;background:oklch(0.82 0.1 55);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:0;top:14px;width:52px;height:48px;border-radius:50%;background:oklch(0.82 0.1 55);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.82 0.1 55);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.82 0.1 55);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+              <div style="position:absolute;right:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+            </div>
+
+            <div style="position:relative;width:52px;height:64px;opacity:0;animation:popBounce .5s ease .44s forwards, leanLeft .5s ease 1.3s;">
+              <div style="position:absolute;left:2px;top:-6px;width:14px;height:14px;border-radius:50%;background:oklch(0.82 0.02 250);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:2px;top:-6px;width:14px;height:14px;border-radius:50%;background:oklch(0.82 0.02 250);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:0;top:14px;width:52px;height:48px;border-radius:50%;background:oklch(0.82 0.02 250);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.82 0.02 250);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.82 0.02 250);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+              <div style="position:absolute;right:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+            </div>
+
+            <div style="position:relative;width:52px;height:64px;opacity:0;animation:popBounce .5s ease .66s forwards, hopSmall .5s ease 1.3s;">
+              <div style="position:absolute;left:2px;top:-6px;width:14px;height:14px;border-radius:50%;background:oklch(0.68 0.08 55);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:2px;top:-6px;width:14px;height:14px;border-radius:50%;background:oklch(0.68 0.08 55);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:0;top:14px;width:52px;height:48px;border-radius:50%;background:oklch(0.68 0.08 55);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.68 0.08 55);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;right:-6px;top:38px;width:15px;height:11px;border-radius:50%;background:oklch(0.68 0.08 55);border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:15px;top:32px;width:6px;height:6px;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+              <div style="position:absolute;right:8px;top:42px;width:9px;height:6px;border-radius:50%;background:oklch(0.85 0.09 15);opacity:0.75;"></div>
+            </div>
+
+            <div style="position:absolute;left:50%;bottom:34px;transform:translateX(-50%);">
+              <div style="position:absolute;left:-7px;top:-7px;width:14px;height:14px;background:oklch(0.8 0.15 86);transform:rotate(45deg);opacity:0;animation:starPop .5s ease 1.5s forwards;"></div>
+              <div style="position:absolute;left:-26px;top:-16px;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:14px;color:oklch(0.8 0.1 45);opacity:0;animation:starPop .5s ease 1.55s forwards;">+</div>
+              <div style="position:absolute;left:14px;top:-18px;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:12px;color:oklch(0.78 0.09 240);opacity:0;animation:starPop .5s ease 1.6s forwards;">+</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ introSceneIs2 }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;animation:sceneFadeOut2 2.5s ease forwards;">
+          <div style="position:relative;width:90%;max-width:360px;height:150px;">
+            <div style="position:absolute;left:6%;top:50%;width:64px;height:64px;transform:translateY(-50%);opacity:0;animation:ballPopIn .5s ease 0s forwards, ballHopScene2 .5s ease 1.1s forwards;">
+              <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 32% 28%, #2b2e42, #12131f 55%, #030309 100%);border:4px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:20%;top:18%;width:16%;height:16%;border-radius:50%;background:rgba(255,255,255,0.5);filter:blur(1px);"></div>
+              <div style="position:absolute;left:34%;top:32%;width:13%;height:13%;border-radius:50%;background:#020208;"></div>
+              <div style="position:absolute;left:52%;top:28%;width:13%;height:13%;border-radius:50%;background:#020208;"></div>
+              <div style="position:absolute;left:43%;top:48%;width:13%;height:13%;border-radius:50%;background:#020208;"></div>
+              <div style="position:absolute;left:33%;top:60%;width:6%;height:6%;border-radius:50%;background:#fff;"></div>
+              <div style="position:absolute;left:56%;top:60%;width:6%;height:6%;border-radius:50%;background:#fff;"></div>
+              <div style="position:absolute;left:40%;top:64%;width:20%;height:10%;border-radius:0 0 50% 50%;border-bottom:3px solid #fff;"></div>
+              <div style="position:absolute;left:14%;top:70%;width:14%;height:9%;border-radius:50%;background:oklch(0.82 0.1 45);opacity:0.7;"></div>
+              <div style="position:absolute;right:14%;top:70%;width:14%;height:9%;border-radius:50%;background:oklch(0.82 0.1 45);opacity:0.7;"></div>
+            </div>
+
+            <div style="position:absolute;right:4%;top:4px;width:26px;height:52px;opacity:0;animation:pinsPopIn .5s ease .25s forwards, pinWobble .5s ease 1.3s;">
+              <div style="position:absolute;inset:0;border-radius:40% 40% 20% 20%;background:#fff;border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:0;right:0;top:36%;height:5px;background:oklch(0.7 0.15 25);"></div>
+              <div style="position:absolute;left:26%;top:16%;width:14%;height:10%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:26%;top:16%;width:14%;height:10%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:36%;top:24%;width:28%;height:8%;border-radius:0 0 50% 50%;border-bottom:2px solid #2a2018;"></div>
+            </div>
+            <div style="position:absolute;right:44px;top:4px;width:26px;height:52px;opacity:0;animation:pinsPopIn .5s ease .35s forwards, pinWobble .5s ease 1.4s;">
+              <div style="position:absolute;inset:0;border-radius:40% 40% 20% 20%;background:#fff;border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:0;right:0;top:36%;height:5px;background:oklch(0.7 0.15 25);"></div>
+              <div style="position:absolute;left:26%;top:16%;width:14%;height:10%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:26%;top:16%;width:14%;height:10%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:36%;top:24%;width:28%;height:8%;border-radius:0 0 50% 50%;border-bottom:2px solid #2a2018;"></div>
+            </div>
+            <div style="position:absolute;right:24px;top:40px;width:26px;height:52px;opacity:0;animation:pinsPopIn .5s ease .45s forwards, pinWobble .5s ease 1.5s;">
+              <div style="position:absolute;inset:0;border-radius:40% 40% 20% 20%;background:#fff;border:3px solid #3a2a1f;"></div>
+              <div style="position:absolute;left:0;right:0;top:36%;height:5px;background:oklch(0.7 0.15 25);"></div>
+              <div style="position:absolute;left:26%;top:16%;width:14%;height:10%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;right:26%;top:16%;width:14%;height:10%;border-radius:50%;background:#2a2018;"></div>
+              <div style="position:absolute;left:36%;top:24%;width:28%;height:8%;border-radius:0 0 50% 50%;border-bottom:2px solid #2a2018;"></div>
+            </div>
+
+            <div style="position:absolute;left:34%;top:36%;width:12px;height:12px;background:oklch(0.8 0.15 86);transform:rotate(45deg);opacity:0;animation:starPop .5s ease 1.4s forwards;"></div>
+            <div style="position:absolute;left:28%;top:20%;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:14px;color:oklch(0.8 0.1 45);opacity:0;animation:starPop .5s ease 1.45s forwards;">+</div>
+            <div style="position:absolute;left:40%;top:56%;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:12px;color:oklch(0.78 0.09 240);opacity:0;animation:starPop .5s ease 1.5s forwards;">+</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="position:absolute;left:0;right:0;bottom:6%;text-align:center;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;color:oklch(0.5 0.04 55);opacity:0.85;z-index:5;">TAP TO SKIP</div>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:860},&quot;kickAnimationEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;confettiEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;maxScore&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:300,&quot;min&quot;:150,&quot;max&quot;:300,&quot;step&quot;:10,&quot;tsType&quot;:&quot;number&quot;}}">
+const WC_NAMES = ['Golazo Gutterballs','Strike Force FC','Real Alley-drid','Bayern Munich-Pins','Frankfurt Frames','Kingpin Kickers','Spare Parts United','FC Split Decision','Turkey Pin Rovers','Gutter Galacticos','Pindiego FC','Rolling Thunder SC','AC Ten-Pin Milan','Liverpool Lane FC','Bowlchester United','Cup Strikers XI'];
+const DEFAULT_DATA = {teams1:[],teams2:[],players:{},scores1:{},scores2:{},round2Started:false,round1Complete:false,round2Complete:false};
+const STORAGE_KEY = 'fdto-bowling-v1';
+const ROW_H = 76;
+if(typeof window!=='undefined' && !window.__bowlingMemoryStore) window.__bowlingMemoryStore = null;
+
+class Component extends DCLogic {
+  state = {
+    loading:true, data:DEFAULT_DATA, view:'home', showIntro:true, introScene:1,
+    showAnim:false, animNonce:0, showConfetti:false, confettiNonce:0,
+    confirmRound2:false, showAdmin:false, confirmReset:false, toast:'',
+    adminUnlocked:false, adminPasscodeInput:'', adminError:'', celebrate:false, rankArrows:{},
+    createName:'', createDivision:'DTO', createMembers:['',''],
+    joinTeamId:null, joinName:'',
+    scoreRound:1, boardRound:1, awardsRound:1,
+    scoreInputs:{}, dirtyIds:{}, prevLeaders:{round1:null, round2:null},
+    displayTotals:{}, flashTeams:{}
+  };
+
+  componentDidMount(){
+    this._prevRanks1={}; this._prevRanks2={}; this._prevTotals1={}; this._prevTotals2={};
+    this._prevLeader1=null; this._prevLeader2=null; this._flashTimers={}; this._countTimers={};
+    this._avatarCache={};
+    this.init();
+  }
+  componentWillUnmount(){
+    clearInterval(this._poll); clearTimeout(this._animTimer); clearTimeout(this._confettiTimer); clearTimeout(this._toastTimer); clearTimeout(this._introTimer); clearTimeout(this._introTimer2); clearTimeout(this._celebrateTimer);
+    Object.values(this._flashTimers||{}).forEach(clearTimeout);
+    Object.values(this._countTimers||{}).forEach(clearInterval);
+  }
+  dismissIntro = () => { clearTimeout(this._introTimer); clearTimeout(this._introTimer2); this.setState({showIntro:false}); }
+
+  generateId(p){ return p+'_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7); }
+  hashStr(str){ let h=0; for(let i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))>>>0; } return h; }
+  avatarFor(teamId){
+    if(this._avatarCache[teamId]) return this._avatarCache[teamId];
+    const COLORS = ['oklch(0.97 0.015 80)','oklch(0.82 0.1 55)','oklch(0.82 0.02 250)','oklch(0.68 0.08 55)','oklch(0.85 0.08 15)','oklch(0.8 0.08 235)','oklch(0.86 0.07 130)'];
+    const ACCENTS = ['oklch(0.8 0.1 45)','oklch(0.78 0.09 240)','oklch(0.8 0.15 86)','oklch(0.78 0.1 15)'];
+    const h = this.hashStr(teamId);
+    const av = { color: COLORS[h % COLORS.length], accessory: ['scarf','flag','ball'][Math.floor(h/7) % 3], accent: ACCENTS[Math.floor(h/3) % ACCENTS.length] };
+    this._avatarCache[teamId] = av;
+    return av;
+  }
+  shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  clampScore(v){ let n=parseInt(v,10); if(isNaN(n)) n=0; const cap=this.props.maxScore??300; return Math.max(0, Math.min(cap, n)); }
+
+  async storageGet(){
+    try{
+      if(window.storage && typeof window.storage.get==='function') return {ok:true, value: await window.storage.get(STORAGE_KEY,{shared:true})};
+      if(window.storage && typeof window.storage.getItem==='function') return {ok:true, value: await window.storage.getItem(STORAGE_KEY,{shared:true})};
+    }catch(e){}
+    return {ok:true, value: window.__bowlingMemoryStore};
+  }
+  async storageSet(val){
+    try{
+      if(window.storage && typeof window.storage.set==='function'){ await window.storage.set(STORAGE_KEY,val,{shared:true}); return; }
+      if(window.storage && typeof window.storage.setItem==='function'){ await window.storage.setItem(STORAGE_KEY,val,{shared:true}); return; }
+    }catch(e){}
+    window.__bowlingMemoryStore = val;
+  }
+  async loadData(){
+    const res = await this.storageGet();
+    if(!res.ok) return this.state.data || DEFAULT_DATA;
+    return Object.assign({},DEFAULT_DATA, res.value||{});
+  }
+
+  computeTeamTotals(data, round){
+    const teams = round===1?data.teams1:data.teams2;
+    const scores = round===1?data.scores1:data.scores2;
+    return teams.map(t=>({id:t.id,name:t.name,division:t.division||null,memberIds:t.memberIds,playerCount:t.memberIds.length,total:t.memberIds.reduce((s,pid)=>s+(scores[pid]||0),0)}));
+  }
+  computeLeaders(data){
+    const r1=this.computeTeamTotals(data,1).sort((a,b)=>b.total-a.total);
+    const r2=this.computeTeamTotals(data,2).sort((a,b)=>b.total-a.total);
+    return {round1:r1[0]?r1[0].id:null, round2:r2[0]?r2[0].id:null};
+  }
+
+  init = async () => {
+    const data = await this.loadData();
+    this.setState({data, loading:false});
+    this.afterDataUpdate(data);
+    this._poll = setInterval(this.pollData, 3000);
+    this._introTimer = setTimeout(()=>this.setState({introScene:2}), 2500);
+    this._introTimer2 = setTimeout(()=>this.setState({showIntro:false}), 5000);
+  }
+  pollData = async () => {
+    const data = await this.loadData();
+    this.setState({data});
+    this.afterDataUpdate(data);
+  }
+
+  afterDataUpdate = (data) => {
+    const totals1 = this.computeTeamTotals(data,1).sort((a,b)=>b.total-a.total);
+    const totals2 = this.computeTeamTotals(data,2).sort((a,b)=>b.total-a.total);
+    const ranks1 = {}; totals1.forEach((t,i)=>ranks1[t.id]=i+1);
+    const ranks2 = {}; totals2.forEach((t,i)=>ranks2[t.id]=i+1);
+
+    const leader1 = totals1[0]?totals1[0].id:null;
+    const leader2 = totals2[0]?totals2[0].id:null;
+    let leaderChanged=false;
+    if(this._prevLeader1 && leader1 && this._prevLeader1!==leader1) leaderChanged=true;
+    if(this._prevLeader2 && leader2 && this._prevLeader2!==leader2) leaderChanged=true;
+    this._prevLeader1=leader1; this._prevLeader2=leader2;
+
+    const flashIds = {};
+    const arrowIds = {};
+    [[ranks1,this._prevRanks1],[ranks2,this._prevRanks2]].forEach(([ranks,prev])=>{
+      Object.keys(ranks).forEach(id=>{
+        if(prev[id]!=null && prev[id]!==ranks[id]){
+          flashIds[id]=true;
+          arrowIds[id] = ranks[id] < prev[id] ? 'up' : 'down';
+        }
+      });
+    });
+    if(Object.keys(flashIds).length){
+      this.setState(s=>({flashTeams:{...s.flashTeams, ...flashIds}, rankArrows:{...s.rankArrows, ...arrowIds}}));
+      Object.keys(flashIds).forEach(id=>{
+        clearTimeout(this._flashTimers[id]);
+        this._flashTimers[id] = setTimeout(()=>this.setState(s=>{
+          const f={...s.flashTeams}; delete f[id];
+          const a={...s.rankArrows}; delete a[id];
+          return {flashTeams:f, rankArrows:a};
+        }), 4000);
+      });
+    }
+    this._prevRanks1 = ranks1; this._prevRanks2 = ranks2;
+
+    totals1.forEach(t=>{
+      const prev = this._prevTotals1[t.id];
+      if(prev!=null && prev!==t.total) this.animateCount(t.id, prev, t.total);
+      else if(prev==null) this.setState(s=>({displayTotals:{...s.displayTotals,[t.id]:t.total}}));
+    });
+    totals2.forEach(t=>{
+      const prev = this._prevTotals2[t.id];
+      if(prev!=null && prev!==t.total) this.animateCount(t.id, prev, t.total);
+      else if(prev==null) this.setState(s=>({displayTotals:{...s.displayTotals,[t.id]:t.total}}));
+    });
+    this._prevTotals1 = {}; totals1.forEach(t=>this._prevTotals1[t.id]=t.total);
+    this._prevTotals2 = {}; totals2.forEach(t=>this._prevTotals2[t.id]=t.total);
+
+    if(leaderChanged){ this.triggerKickAnim('New Leader!'); this.triggerConfetti(); }
+  }
+
+  animateCount = (id, from, to) => {
+    clearInterval(this._countTimers[id]);
+    const steps=16; let i=0;
+    this._countTimers[id] = setInterval(()=>{
+      i++;
+      const t = i/steps;
+      const eased = 1-Math.pow(1-t,2);
+      const val = i>=steps ? to : Math.round(from + (to-from)*eased);
+      this.setState(s=>({displayTotals:{...s.displayTotals,[id]:val}}));
+      if(i>=steps) clearInterval(this._countTimers[id]);
+    }, 40);
+  }
+  triggerKickAnim = (caption) => {
+    if(this.props.kickAnimationEnabled===false) return;
+    this.setState(s=>({showAnim:true, animNonce:s.animNonce+1, animCaption:caption||'Strike!'}));
+    clearTimeout(this._animTimer);
+    this._animTimer = setTimeout(()=>this.setState({showAnim:false}), 2700);
+  }
+  triggerConfetti = () => {
+    if(this.props.confettiEnabled===false) return;
+    this.setState(s=>({showConfetti:true, confettiNonce:s.confettiNonce+1}));
+    clearTimeout(this._confettiTimer);
+    this._confettiTimer = setTimeout(()=>this.setState({showConfetti:false}), 3200);
+    this.triggerCelebrate();
+  }
+  triggerCelebrate = () => {
+    this.setState({celebrate:true});
+    clearTimeout(this._celebrateTimer);
+    this._celebrateTimer = setTimeout(()=>this.setState({celebrate:false}), 1400);
+  }
+  showToast = (msg) => {
+    this.setState({toast:msg});
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(()=>this.setState({toast:''}), 2400);
+  }
+
+  mutateData = (mutator) => {
+    const run = async () => {
+      try{
+        const latest = await this.loadData();
+        const next = mutator(JSON.parse(JSON.stringify(latest)));
+        await this.storageSet(next);
+        this.setState({data:next});
+        this.afterDataUpdate(next);
+        return next;
+      }catch(e){ return this.state.data; }
+    };
+    this._mutateQueue = (this._mutateQueue || Promise.resolve()).then(run);
+    return this._mutateQueue;
+  }
+
+  finishRound2 = async () => {
+    await this.mutateData(data=>{ data.round2Complete = true; return data; });
+    this.triggerConfetti();
+    this.showToast('Round 2 complete!');
+  }
+
+  setView = (v) => this.setState({view:v});
+  updateMemberField = (i,v) => this.setState(s=>{ const arr=s.createMembers.slice(); arr[i]=v; return {createMembers:arr}; });
+  addMemberField = () => this.setState(s=>({createMembers:[...s.createMembers,'']}));
+  removeMemberField = (i) => this.setState(s=>({createMembers:s.createMembers.filter((_,idx)=>idx!==i)}));
+
+  submitCreateTeam = async () => {
+    const name = this.state.createName.trim();
+    if(!name){ this.showToast('Enter a team name'); return; }
+    const memberNames = this.state.createMembers.map(m=>m.trim()).filter(Boolean);
+    if(memberNames.length===0){ this.showToast('Add at least one member'); return; }
+    const division = this.state.createDivision;
+    await this.mutateData(data=>{
+      const memberIds = memberNames.map(n=>{ const id=this.generateId('p'); data.players[id]={id,name:n}; return id; });
+      data.teams1.push({id:this.generateId('t'),name,division,memberIds});
+      return data;
+    });
+    this.setState({view:'home', createName:'', createDivision:'DTO', createMembers:['','']});
+    this.showToast('Team created!');
+  }
+
+  submitJoin = async () => {
+    const name = this.state.joinName.trim();
+    if(!name || !this.state.joinTeamId){ this.showToast('Pick a team and enter your name'); return; }
+    const teamId = this.state.joinTeamId;
+    await this.mutateData(data=>{
+      const id = this.generateId('p');
+      data.players[id]={id,name};
+      const team = data.teams1.find(t=>t.id===teamId);
+      if(team) team.memberIds.push(id);
+      return data;
+    });
+    this.setState({view:'home', joinTeamId:null, joinName:''});
+    this.showToast('Joined team!');
+  }
+
+  requestRound2 = () => this.setState({confirmRound2:true});
+  cancelRound2 = () => this.setState({confirmRound2:false});
+  confirmStartRound2 = async () => {
+    this.setState({confirmRound2:false});
+    await this.mutateData(data=>{
+      const allIds=[];
+      data.teams1.forEach(t=>t.memberIds.forEach(id=>{ if(!allIds.includes(id)) allIds.push(id); }));
+      const shuffled = this.shuffle(allIds);
+      let teamCount = data.teams1.length || 2;
+      teamCount = Math.max(1, Math.min(teamCount, shuffled.length||1));
+      if(teamCount<2 && shuffled.length>=2) teamCount=2;
+      const buckets = Array.from({length:teamCount},()=>[]);
+      shuffled.forEach((pid,i)=>buckets[i%teamCount].push(pid));
+      const names = this.shuffle(WC_NAMES).slice(0,teamCount);
+      data.teams2 = buckets.map((memberIds,i)=>({id:this.generateId('t2'),name:names[i]||('Team '+(i+1)),memberIds}));
+      data.scores2 = {};
+      data.round2Started = true;
+      data.round1Complete = true;
+      return data;
+    });
+    this.triggerConfetti();
+    this.setState({view:'leaderboard', boardRound:2, scoreRound:2});
+    this.showToast('Round 2 teams are set!');
+  }
+
+  setScoreInput = (pid,val) => this.setState(s=>({scoreInputs:{...s.scoreInputs,[pid]:val}, dirtyIds:{...s.dirtyIds,[pid]:true}}));
+  saveTeamScores = async (team, round) => {
+    const roundKey = round===1?'scores1':'scores2';
+    const dirty = this.state.dirtyIds, inputs = this.state.scoreInputs;
+    await this.mutateData(data=>{
+      team.memberIds.forEach(pid=>{
+        const val = dirty[pid] ? inputs[pid] : (data[roundKey][pid]!=null?data[roundKey][pid]:0);
+        data[roundKey][pid] = this.clampScore(val);
+      });
+      return data;
+    });
+    const clearDirty = {...this.state.dirtyIds};
+    team.memberIds.forEach(pid=>{ delete clearDirty[pid]; });
+    this.setState({dirtyIds:clearDirty});
+    this.showToast('Scores saved for '+team.name);
+  }
+
+  askConfirmReset = () => this.setState({confirmReset:true});
+  cancelReset = () => this.setState({confirmReset:false});
+  resetAll = async () => {
+    await this.storageSet(DEFAULT_DATA);
+    this.setState({data:DEFAULT_DATA, showAdmin:false, confirmReset:false, adminUnlocked:false, adminPasscodeInput:'', view:'home', prevLeaders:{round1:null,round2:null}});
+    this.showToast('All data reset');
+  }
+
+  onAdminPasscodeChange = (e) => this.setState({adminPasscodeInput:e.target.value, adminError:''});
+  submitAdminPasscode = () => {
+    if(this.state.adminPasscodeInput === 'DTOxFinance2026'){
+      this.setState({adminUnlocked:true, adminError:'', adminPasscodeInput:''});
+    } else {
+      this.setState({adminError:'Incorrect passcode'});
+    }
+  }
+
+  exportData = () => {
+    const data = this.state.data;
+    const rows = [['Round','Team','Rank','Team Total','Player','Player Score']];
+    [1,2].forEach(round=>{
+      const totals = this.computeTeamTotals(data, round).sort((a,b)=>b.total-a.total);
+      const scores = round===1?data.scores1:data.scores2;
+      totals.forEach((t,i)=>{
+        if(t.memberIds.length===0){ rows.push([round,t.name,i+1,t.total,'','']); return; }
+        t.memberIds.forEach(pid=>{
+          const p = data.players[pid]||{name:'?'};
+          rows.push([round, t.name, i+1, t.total, p.name, scores[pid]||0]);
+        });
+      });
+    });
+    const csv = rows.map(r=>r.map(v=>{
+      const str = String(v);
+      return /[",\n]/.test(str) ? '"'+str.replace(/"/g,'""')+'"' : str;
+    }).join(',')).join('\n');
+    const blob = new Blob([csv], {type:'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'bowling-tournament-results.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    this.showToast('Exported CSV');
+  }
+
+  findTeamName(data, round, pid){
+    const teams = round===1?data.teams1:data.teams2;
+    const t = teams.find(t=>t.memberIds.includes(pid));
+    return t?t.name:'—';
+  }
+
+  renderVals(){
+    const data = this.state.data || DEFAULT_DATA;
+    const s = this.state;
+    const view = s.view;
+    const maxScore = this.props.maxScore ?? 300;
+
+    const teams1Detailed = data.teams1.map(t=>({
+      ...t,
+      members: t.memberIds.map(id=>data.players[id]||{id,name:'?'}),
+      memberSummary: t.memberIds.length ? t.memberIds.map(id=>(data.players[id]||{}).name).join(', ') : 'No members yet',
+      divisionColor: t.division==='DTO' ? 'oklch(0.75 0.09 240)' : 'oklch(0.78 0.1 35)',
+      selectStyle: s.joinTeamId===t.id ? 'border:3px solid oklch(0.66 0.12 42);' : 'border:3px solid oklch(0.78 0.05 60);',
+      onSelect: () => this.setState({joinTeamId:t.id})
+    }));
+    const teams2Detailed = data.teams2.map(t=>({...t, members:t.memberIds.map(id=>data.players[id]||{id,name:'?'})}));
+
+    const totals1 = this.computeTeamTotals(data,1).sort((a,b)=>b.total-a.total);
+    const totals2 = this.computeTeamTotals(data,2).sort((a,b)=>b.total-a.total);
+    const boardTotals = (s.boardRound===1?totals1:totals2);
+    const topId = boardTotals[0]?boardTotals[0].id:null;
+    const roundComplete = s.boardRound===1 ? data.round1Complete : data.round2Complete;
+    const MEDAL_BG = ['oklch(0.8 0.15 86)','oklch(0.88 0.015 90)','oklch(0.76 0.09 55)'];
+    const MEDAL_TEXT = ['oklch(0.32 0.06 60)','oklch(0.4 0.03 90)','oklch(0.28 0.06 50)'];
+    const PODIUM_HEIGHT = [64,44,32];
+    const AVATAR_SIZE = [72,54,54];
+
+    const podiumTeams = boardTotals.slice(0,3);
+    const podiumOrder = podiumTeams.length===1 ? [0] : podiumTeams.length===2 ? [1,0] : [1,0,2];
+    const podiumSlots = podiumOrder.filter(i=>podiumTeams[i]).map(i=>{
+      const t = podiumTeams[i];
+      const av = this.avatarFor(t.id);
+      return {
+        id:t.id, rank:i+1, name:t.name,
+        displayTotal: s.displayTotals[t.id]!=null ? s.displayTotals[t.id] : t.total,
+        subtitle: t.division ? (t.division+' · '+t.playerCount+' players') : (t.playerCount+' players'),
+        isCenter: i===0, showCrown: i===0,
+        showCrownSparkle: i===0 && s.celebrate,
+        showRibbon: i===0 && !!roundComplete,
+        bounce: i===0 && s.celebrate ? 'animation:mascotBounce .5s ease-in-out 2;' : '',
+        avatarSize: AVATAR_SIZE[i], podiumHeight: PODIUM_HEIGHT[i],
+        badgeBg: MEDAL_BG[i], badgeText: MEDAL_TEXT[i],
+        avatarColor: av.color, hasScarf: av.accessory==='scarf', hasFlag: av.accessory==='flag', hasBall: av.accessory==='ball', accentColor: av.accent,
+        trophyKey: topId
+      };
+    });
+
+    const restTeams = boardTotals.slice(3);
+    const leaderboardRows = restTeams.map((t,i)=>{
+      const av = this.avatarFor(t.id);
+      return {
+        id:t.id, rank:i+4, name:t.name,
+        displayTotal: s.displayTotals[t.id]!=null ? s.displayTotals[t.id] : t.total,
+        subtitle: t.division ? (t.division+' · '+t.playerCount+' players') : (t.playerCount+' players'),
+        topPx: i*ROW_H,
+        bgColor: s.flashTeams[t.id] ? 'oklch(0.9 0.09 50)' : 'oklch(0.98 0.018 80)',
+        avatarColor: av.color, hasScarf: av.accessory==='scarf', hasFlag: av.accessory==='flag', hasBall: av.accessory==='ball', accentColor: av.accent,
+        showArrowUp: s.rankArrows[t.id]==='up', showArrowDown: s.rankArrows[t.id]==='down'
+      };
+    });
+    const hasPodium = podiumTeams.length>0;
+    const podiumCelebrateBurst = s.celebrate;
+
+    const awardsTotals = s.awardsRound===1?totals1:totals2;
+    const awardsScores = s.awardsRound===1?data.scores1:data.scores2;
+    let mvp = null;
+    Object.keys(awardsScores).forEach(pid=>{
+      const sc = awardsScores[pid];
+      if(!mvp || sc>mvp.score) mvp = {pid, score:sc};
+    });
+    const awardCards = [];
+    if(awardsTotals.length>0){
+      const best = awardsTotals[0];
+      const worst = awardsTotals[awardsTotals.length-1];
+      awardCards.push({medal:'🏆', label:'BEST TEAM', winner:best.name, detail:best.total+' total points', borderColor:'oklch(0.8 0.15 86)'});
+      awardCards.push({medal:'🎳', label:'KEEP ROLLING', winner:worst.name, detail:worst.total+' total points', borderColor:'oklch(0.78 0.07 150)'});
+    }
+    if(mvp){
+      const player = data.players[mvp.pid] || {name:'—'};
+      awardCards.push({medal:'⭐', label:'BOWLING MVP', winner:player.name, detail:mvp.score+' points · '+this.findTeamName(data, s.awardsRound, mvp.pid), borderColor:'oklch(0.78 0.09 240)'});
+    }
+
+    const maxTotal1 = Math.max(1, ...totals1.map(t=>t.total), 1);
+    const dashBars1 = totals1.map(t=>({name:t.name, total:t.total, pct:Math.round((t.total/maxTotal1)*100)}));
+    const maxTotal2 = Math.max(1, ...totals2.map(t=>t.total), 1);
+    const dashBars2 = totals2.map(t=>({name:t.name, total:t.total, pct:Math.round((t.total/maxTotal2)*100)}));
+    const dtoTeams = totals1.filter(t=>t.division==='DTO');
+    const finTeams = totals1.filter(t=>t.division==='Finance');
+    const dtoAvg = dtoTeams.length ? Math.round(dtoTeams.reduce((a,t)=>a+t.total,0)/dtoTeams.length) : 0;
+    const financeAvg = finTeams.length ? Math.round(finTeams.reduce((a,t)=>a+t.total,0)/finTeams.length) : 0;
+    const maxAvg = Math.max(1, dtoAvg, financeAvg);
+
+    const scorerEntries = [];
+    Object.keys(data.scores1).forEach(pid=>scorerEntries.push({name:(data.players[pid]||{}).name||'—', score:data.scores1[pid], round:1}));
+    Object.keys(data.scores2).forEach(pid=>scorerEntries.push({name:(data.players[pid]||{}).name||'—', score:data.scores2[pid], round:2}));
+    scorerEntries.sort((a,b)=>b.score-a.score);
+    const topScorers = scorerEntries.slice(0,5).map((e,i)=>({rank:i+1, ...e}));
+
+    const tabActive = 'background:oklch(0.82 0.1 45);color:oklch(0.3 0.06 45);border:2.5px solid oklch(0.66 0.12 42);';
+    const tabInactive = 'background:oklch(0.98 0.018 80);color:oklch(0.5 0.04 55);border:2.5px solid oklch(0.85 0.03 70);opacity:0.9;';
+
+    const scoreTeams = (s.scoreRound===1?teams1Detailed:teams2Detailed).map(t=>{
+      const roundKey = s.scoreRound===1?'scores1':'scores2';
+      const players = t.members.map(p=>{
+        const saved = data[roundKey][p.id];
+        const dirty = s.dirtyIds[p.id];
+        const val = dirty ? s.scoreInputs[p.id] : (saved!=null?String(saved):'');
+        return {id:p.id, name:p.name, value:val, maxScore, onChange:(e)=>this.setScoreInput(p.id, e.target.value)};
+      });
+      const total = t.memberIds.reduce((sum,pid)=>{
+        const dirty = s.dirtyIds[pid];
+        const v = dirty ? this.clampScore(s.scoreInputs[pid]) : (data[roundKey][pid]||0);
+        return sum+v;
+      },0);
+      return {id:t.id, name:t.name, total, players, onSave:()=>this.saveTeamScores(t, s.scoreRound)};
+    });
+
+    const navDefs = [
+      {key:'home', label:'HOME'}, {key:'scores', label:'SCORE'}, {key:'leaderboard', label:'BOARD'}, {key:'awards', label:'AWARDS'}, {key:'dashboard', label:'STATS'}
+    ];
+    const navItems = navDefs.map(n=>({
+      label:n.label, onClick:()=>this.setView(n.key),
+      color: view===n.key ? 'oklch(0.35 0.05 50)' : 'oklch(0.62 0.04 60)',
+      dotColor: view===n.key ? 'oklch(0.8 0.1 45)' : 'oklch(0.85 0.03 70)'
+    }));
+
+    return {
+      loading: s.loading, toast: s.toast,
+      showIntro: s.showIntro, dismissIntro: this.dismissIntro, introSceneIs1: s.introScene===1, introSceneIs2: s.introScene===2,
+      isHome: view==='home', isCreate: view==='create', isJoin: view==='join', isScores: view==='scores', isLeaderboard: view==='leaderboard', isAwards: view==='awards', isDashboard: view==='dashboard',
+      teamCount1: data.teams1.length, playerCount: Object.keys(data.players).length,
+      goHome: this.setView.bind(this,'home'), goCreate: this.setView.bind(this,'create'), goJoin: this.setView.bind(this,'join'),
+      openAdmin: ()=>this.setState({showAdmin:true, confirmReset:false, adminUnlocked:false, adminPasscodeInput:'', adminError:''}),
+      closeAdmin: ()=>this.setState({showAdmin:false, confirmReset:false, adminUnlocked:false, adminPasscodeInput:'', adminError:''}),
+      showAdmin: s.showAdmin, confirmReset: s.confirmReset, notConfirmReset: !s.confirmReset, askConfirmReset: this.askConfirmReset, cancelReset: this.cancelReset, resetAll: this.resetAll,
+      adminLocked: !s.adminUnlocked, adminUnlocked: s.adminUnlocked, adminPasscodeInput: s.adminPasscodeInput, adminError: s.adminError,
+      onAdminPasscodeChange: this.onAdminPasscodeChange, submitAdminPasscode: this.submitAdminPasscode, exportData: this.exportData,
+      canStartRound2: data.teams1.length>=2 && !data.round2Started,
+      needsMoreForRound2: data.teams1.length<2 && !data.round2Started,
+      round2AlreadyStarted: data.round2Started,
+      requestRound2: this.requestRound2, cancelRound2: this.cancelRound2, confirmStartRound2: this.confirmStartRound2, confirmRound2: s.confirmRound2,
+      canFinishRound2: data.round2Started && !data.round2Complete, finishRound2: this.finishRound2,
+
+      createName: s.createName, onCreateNameChange: (e)=>this.setState({createName:e.target.value}),
+      createDivision: s.createDivision,
+      setCreateDivisionDTO: ()=>this.setState({createDivision:'DTO'}), setCreateDivisionFinance: ()=>this.setState({createDivision:'Finance'}),
+      dtoButtonStyle: s.createDivision==='DTO' ? 'background:oklch(0.75 0.09 240);color:#fff;border:2.5px solid oklch(0.6 0.1 235);' : 'background:oklch(0.94 0.03 90);color:oklch(0.5 0.04 55);border:2.5px solid oklch(0.82 0.04 70);',
+      financeButtonStyle: s.createDivision==='Finance' ? 'background:oklch(0.78 0.1 35);color:#fff;border:2.5px solid oklch(0.64 0.11 32);' : 'background:oklch(0.94 0.03 90);color:oklch(0.5 0.04 55);border:2.5px solid oklch(0.82 0.04 70);',
+      createMembers: s.createMembers.map((v,i)=>({idx:i, value:v, onChange:(e)=>this.updateMemberField(i,e.target.value), canRemove:s.createMembers.length>1, onRemove:()=>this.removeMemberField(i)})),
+      addMemberField: this.addMemberField, submitCreateTeam: this.submitCreateTeam,
+
+      joinTeamsList: teams1Detailed, joinTeamId: s.joinTeamId, hasJoinSelection: !!s.joinTeamId,
+      joinName: s.joinName, onJoinNameChange: (e)=>this.setState({joinName:e.target.value}), submitJoin: this.submitJoin,
+
+      scoreRound: s.scoreRound, setScoreRound1: ()=>this.setState({scoreRound:1}), setScoreRound2: ()=>data.round2Started && this.setState({scoreRound:2}),
+      scoreRound2Disabled: !data.round2Started,
+      scoreTab1Style: s.scoreRound===1 ? tabActive : tabInactive, scoreTab2Style: (s.scoreRound===2 ? tabActive : tabInactive)+(data.round2Started?'':'opacity:0.4;'),
+      scoreTeams,
+
+      boardRound: s.boardRound, setBoardRound1: ()=>this.setState({boardRound:1}), setBoardRound2: ()=>data.round2Started && this.setState({boardRound:2}),
+      boardRound2Disabled: !data.round2Started,
+      boardTab1Style: s.boardRound===1 ? tabActive : tabInactive, boardTab2Style: (s.boardRound===2 ? tabActive : tabInactive)+(data.round2Started?'':'opacity:0.4;'),
+      podiumSlots, hasPodium, leaderboardRows, leaderboardHeight: Math.max(leaderboardRows.length*ROW_H, 4),
+
+      awardsRound: s.awardsRound, setAwardsRound1: ()=>this.setState({awardsRound:1}), setAwardsRound2: ()=>data.round2Started && this.setState({awardsRound:2}),
+      awardsRound2Disabled: !data.round2Started,
+      awardsTab1Style: s.awardsRound===1 ? tabActive : tabInactive, awardsTab2Style: (s.awardsRound===2 ? tabActive : tabInactive)+(data.round2Started?'':'opacity:0.4;'),
+      awardCards,
+
+      dashBars1, dashBars2, hasRound2Bars: data.round2Started && dashBars2.length>0,
+      dtoAvg, financeAvg, dtoAvgPct: Math.round((dtoAvg/maxAvg)*100), financeAvgPct: Math.round((financeAvg/maxAvg)*100),
+      topScorers,
+
+      navItems,
+      showAnim: s.showAnim, animNonce: s.animNonce, animCaption: s.animCaption||'Strike!',
+      showConfetti: s.showConfetti, confettiNonce: s.confettiNonce,
+      confettiPieces: s.showConfetti ? Array.from({length:28},(_,i)=>{
+        const r = i%9;
+        const kind = r===7 ? 'pin' : r===8 ? 'ball' : 'confetti';
+        return {
+          left: Math.round(Math.random()*100), delay: Math.round(Math.random()*80)/100, duration: 2.2+Math.round(Math.random()*140)/100,
+          color: ['oklch(0.82 0.1 45)','oklch(0.85 0.08 15)','oklch(0.8 0.08 235)','oklch(0.8 0.15 86)'][i%4],
+          isConfetti: kind==='confetti', isPin: kind==='pin', isBall: kind==='ball'
+        };
+      }) : []
+    };
+  }
+}
+
+</script>
+</body>
+</html>
